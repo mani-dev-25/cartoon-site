@@ -1,8 +1,9 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Tamil Cartoon World</title>
+<title>Tamil Cartoon Streaming</title>
 
 <style>
 
@@ -19,7 +20,7 @@ header{
 background:#111;
 padding:20px;
 text-align:center;
-font-size:28px;
+font-size:26px;
 font-weight:bold;
 }
 
@@ -38,62 +39,37 @@ color:white;
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
 gap:20px;
-padding:30px;
+padding:25px;
 }
 
-/* CARD */
+/* VIDEO CARD */
 
 .card{
 background:#1c1c1c;
 border-radius:10px;
-overflow:hidden;
-cursor:pointer;
+padding:10px;
 transition:0.3s;
 }
 
 .card:hover{
-transform:scale(1.05);
+transform:scale(1.03);
 }
 
-.card img{
+/* VIDEO */
+
+iframe{
 width:100%;
-height:260px;
-object-fit:cover;
+height:220px;
+border-radius:6px;
 }
+
+/* TITLE */
 
 .card h3{
-padding:10px;
-font-size:18px;
-}
-
-/* VIDEO PLAYER */
-
-.player{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.95);
-display:none;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-}
-
-.player iframe{
-width:80%;
-height:60%;
-}
-
-.close{
-position:absolute;
-top:20px;
-right:40px;
-font-size:40px;
-cursor:pointer;
+margin:10px 0 0 0;
+font-size:16px;
 }
 
 </style>
@@ -103,7 +79,7 @@ cursor:pointer;
 
 <header>
 
-Tamil Cartoon World
+Tamil Cartoon Streaming
 
 <br>
 
@@ -114,85 +90,66 @@ Tamil Cartoon World
 
 <div class="grid" id="grid">
 
-<!-- VIDEO CARD 1 -->
+<!-- VIDEO 1 -->
 
-<div class="card"
-data-title="oggy movie 1"
-data-video="https://www.youtube.com/embed/dOPXce99A2w">
+<div class="card" data-title="Jackie Chan Episode 1">
 
-<img src="https://i.imgur.com/9XnK6Fh.jpg">
+<iframe
+src="https://www.youtube.com/embed/VIDEO_ID"
+frameborder="0"
+allowfullscreen>
+</iframe>
 
-<h3>oggy movie 1</h3>
+<h3>Jackie Chan Adventures Episode 1</h3>
 
 </div>
 
 
-<!-- VIDEO CARD 2 -->
+<!-- VIDEO 2 -->
 
-<div class="card"
-data-title="vijay raj"
-data-video="https://www.youtube.com/embed/VdzyYQ7I0mc">
+<div class="card" data-title="Jackie Chan Episode 2">
 
-<img src="https://i.imgur.com/9XnK6Fh.jpg">
+<iframe
+src="https://www.youtube.com/embed/VIDEO_ID"
+frameborder="0"
+allowfullscreen>
+</iframe>
 
 <h3>Jackie Chan Adventures Episode 2</h3>
 
 </div>
 
 
-<!-- VIDEO PLAYER -->
+<!-- VIDEO 3 -->
 
-<div class="player" id="player">
+<div class="card" data-title="Ben 10 Episode 1">
 
-<div class="close" onclick="closePlayer()">✖</div>
+<iframe
+src="https://www.youtube.com/embed/VIDEO_ID"
+frameborder="0"
+allowfullscreen>
+</iframe>
 
-<iframe id="video" frameborder="0" allowfullscreen></iframe>
+<h3>Ben 10 Episode 1</h3>
+
+</div>
 
 </div>
 
 
 <script>
 
-const cards = document.querySelectorAll(".card")
-const player = document.getElementById("player")
-const video = document.getElementById("video")
-
-cards.forEach(card => {
-
-card.addEventListener("click",()=>{
-
-let link = card.getAttribute("data-video")
-
-video.src = link
-
-player.style.display="flex"
-
-})
-
-})
-
-
-function closePlayer(){
-
-video.src=""
-
-player.style.display="none"
-
-}
-
-
-
 /* SEARCH FUNCTION */
 
 document.getElementById("search").addEventListener("keyup",function(){
 
-let value = this.value.toLowerCase()
+let value=this.value.toLowerCase()
 
 document.querySelectorAll(".card").forEach(card=>{
 
-let title = card.getAttribute("data-title").toLowerCase()
+let title=card.dataset.title.toLowerCase()
 
-card.style.display = title.includes(value) ? "block":"none"
+card.style.display=title.includes(value)?"block":"none"
 
 })
 
@@ -202,3 +159,4 @@ card.style.display = title.includes(value) ? "block":"none"
 
 </body>
 </html>
+```
