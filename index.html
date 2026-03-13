@@ -97,7 +97,6 @@ Tamil Cartoon Streaming
 ⚠️ Note: Please watch the cartoons only on this website. Do not open the video on YouTube to avoid advertisements and interruptions.
 </div>
 
-<input id="search" placeholder="Search cartoon...">
 
 <div class="grid" id="grid">
 
@@ -139,32 +138,28 @@ frameborder="0"
 allowfullscreen>
 </iframe>
 
+
+
 <h3>mr beast video</h3>
 
 </div>
+<!--video 4-->
+<div class="card" data-title="Jackie Chan Episode 2">
 
+<iframe
+src="https://www.youtube.com/embed/R0OD5F-WO9A?rel=0&modestbranding=1&controls=1&disablekb=1"
+frameborder="0"
+allowfullscreen>
+</iframe>
+
+
+
+<h3>mr bean video</h3>
+
+</div>
 </div>
 
 
-<script>
-
-/* SEARCH FUNCTION */
-
-document.getElementById("search").addEventListener("keyup",function(){
-
-let value=this.value.toLowerCase()
-
-document.querySelectorAll(".card").forEach(card=>{
-
-let title=card.dataset.title.toLowerCase()
-
-card.style.display=title.includes(value)?"block":"none"
-
-})
-
-})
-
-</script>
 
 </body>
 </html>
