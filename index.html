@@ -23,6 +23,17 @@ font-size:26px;
 font-weight:bold;
 }
 
+/* NOTICE */
+
+.notice{
+background:#ff4444;
+color:white;
+text-align:center;
+padding:12px;
+font-size:15px;
+font-weight:bold;
+}
+
 /* SEARCH */
 
 #search{
@@ -33,24 +44,17 @@ background:#222;
 border:none;
 color:white;
 }
-.notice{
-background:#ff4444;
-color:white;
-text-align:center;
-padding:12px;
-font-size:15px;
-font-weight:bold;
-}
+
 /* GRID */
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 gap:20px;
 padding:25px;
 }
 
-/* VIDEO CARD */
+/* CARD */
 
 .card{
 background:#1c1c1c;
@@ -64,12 +68,6 @@ transform:scale(1.03);
 }
 
 /* VIDEO */
-
-iframe{
-width:100%;
-height:220px;
-border-radius:6px;
-}
 
 video{
 width:100%;
@@ -90,49 +88,54 @@ font-size:16px;
 <body>
 
 <header>
-
 Tamil Cartoon Streaming
-
-<br>
-
-
-
 </header>
 
 <div class="notice">
-⚠️ Note: Please watch the cartoons only on this website. Do not open the video on YouTube to avoid advertisements and interruptions.
+⚠️ Watch only on this website.
 </div>
 
+<div class="grid" id="grid"></div>
 
-<div class="grid" id="grid">
+<script>
 
-<!-- VIDEO 1 -->
+// 🔥 ADD YOUR VIDEOS HERE
+const videos = [
 
-<div class="card" data-title="Jackie Chan Episode 1">
+{
+title: "Oggy and the Cockroaches Movie",
+src: "https://archive.org/download/oggy-and-the-cockroaches-the-movie-2013-original-1080p-hd/Oggy%20and%20the%20Cockroaches%20The%20Movie%202013%20Original%201080p%20HD.mp4"
+},
 
-<video controls width="100%" poster="thumbnail.jpg">
-  <source src="https://archive.org/download/oggy-and-the-cockroaches-the-movie-2013-original-1080p-hd/Oggy%20and%20the%20Cockroaches%20The%20Movie%202013%20Original%201080p%20HD.mp4" type="video/mp4">
+{
+title: "Tom and Jerry Live Action",
+src: "https://archive.org/download/tom-and-jerry-tamil-2021-hd/Tom%20And%20Jerry%20Tamil%202021%20HD.mp4"
+}
+
+];
+
+// Get grid
+const grid = document.getElementById("grid");
+
+// Create cards automatically
+videos.forEach(video => {
+
+const card = document.createElement("div");
+card.className = "card";
+
+card.innerHTML = `
+<video controls>
+<source src="${video.src}" type="video/mp4">
+Your browser does not support video.
 </video>
+<h3>${video.title}</h3>
+`;
 
-<h3>oggy and the cockroaches movie</h3>
+grid.appendChild(card);
 
-</div>
+});
 
-<!--video 2-->
-<div class="card" data-title="Tom and Jerry live action">
-
-<video controls width="100%" poster="thumbnail.jpg">
-  <source src="https://archive.org/download/tom-and-jerry-tamil-2021-hd/Tom%20And%20Jerry%20Tamil%202021%20HD.mp4" type="video/mp4">
-</video>
-
-
-
-<h3>Tom and Jerry live action</h3>
-
-</div>
-</div>
-
-
+</script>
 
 </body>
 </html>
